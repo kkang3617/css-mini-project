@@ -47,6 +47,30 @@ header .inner-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+header .inner-header::before {
+    text-align: center;
+    line-height: 50px;
+    color: rgba(128, 128, 128, 0);
+    font-size: 2em;
+    content: '〈';
+    width: 10px;
+    height: 50px;
+    left: 2%;
+    position: absolute;
+    transition: 1s;
+}
+header .inner-header:hover::before {
+    text-align: center;
+    line-height: 50px;
+    color: gray;
+    font-size: 2em;
+    content: '〈';
+    width: 10px;
+    height: 50px;
+    left: -3%;
+    position: absolute;
 }
 
 header .inner-header .slide {
@@ -93,6 +117,38 @@ section.main .main-title {
     left: 16%;
     color: white;
 }
+
+section.main .main-title div:nth-child(1) {
+    text-align: center;
+    border: 2px solid rgb(208, 208, 209);
+    border-radius: 20px;
+    width: 23%;
+    padding: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+section.main .main-title div:nth-child(1)::before {
+    text-align: center;
+    color: #ff4800;
+    font-size: 0.8em;
+    content: '●';
+    width: 10px;
+    height: 50px;
+    top: 35%;
+    left: 8%;
+    position: absolute;
+    
+    animation: flash 1.2s infinite alternate;
+}
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 section.main .main-title h2 {
     font-size: 60px;
@@ -153,7 +209,7 @@ section.intro .content {
     margin: 100px auto;
 }
 section.intro .content .paragraph{
-    width: 45%;
+    width: 55%;
     font-size: 1.3em;
     line-height: 1.5;
 }
@@ -259,7 +315,7 @@ section.event .box .content .gnb-region {
     width: 180px;
     padding: 15px;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.25);
+    background: black;
     border: 2px solid lightgray;
     border-radius: 10px;
 
@@ -274,7 +330,7 @@ section.event .box .content .gnb-time {
     width: 200px;
     padding: 15px;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.25);
+    background: black;
     border: 2px solid lightgray;
     border-radius: 10px;
 
@@ -428,8 +484,10 @@ section.join .box .inner-box .dummy3 {
 
 /* footer start */
 
-footer {
-    border-top: 1px solid gray;
+footer hr{
+    border: 0;
+    height: 1px;
+    background: gray;
 }
 
 footer .upfooter {
@@ -453,12 +511,6 @@ footer .upfooter .image-box img {
     opacity: 0.5;
     margin-left: 10px;
 }
-footer .line {
-    width: 100%;
-    height: 2px;
-    border-bottom: 1px solid gray;
-}
-
 footer .downfooter {
     font-size: 1.1em;
     color: gray;
@@ -477,7 +529,161 @@ footer .downfooter .menu span {
     width: 10px;
     margin-left: 10px;
     padding: 5px;
+    transition: 0.5s;
+    border-bottom: 2px solid rgba(128, 128, 128, 0);
 }
 footer .downfooter .menu span:hover {
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+@media screen and (max-width: 1550px) {
+    header .inner-header .button {
+        padding: 10px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1398px) {
+    header .inner-header .button {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1160px) {
+    header .inner-header {
+        /* background: tomato; */
+        width: 85%;
+    }
+    header .inner-header::before {
+        left: 4%;
+    }
+    header .inner-header:hover::before {
+        left: -5%;
+    }
+    
+    section.main .main-title h2 {
+        font-size: 45px;
+    }
+    section.main .main-title p {
+        font-size: 1em;
+    }
+    section.main .main-title p span{
+        font-size: 1em;
+    }
+    section.main .main-title {
+        top: 30%;
+        left: 10%;
+    }
+    
+    section.main .main-title div:nth-child(1) {
+        width: 30%;
+    }
+    
+    section.intro .content .paragraph{
+        width: 45%;
+        font-size: 1.1em;
+    }
+    section.intro .content .paragraph br {
+        display: none;
+    }
+    
+    section.intro .content .content-up {
+        padding-bottom: 150px;
+    }
+    
+
+    section.intro .content .content-up .info {
+        font-size: 30px;
+        margin-left: 5%;
+    
+    }
+    section.intro .content .content-down ul {
+        font-size: 1.4em;
+        line-height: 1.3;
+        margin-left: 5%;
+    }
+    section.intro .content .content-down ul li {
+        margin-bottom: 20px;
+    }
+
+    section.event .title {
+        /* background: tomato; */
+        font-size: 2.4em;
+        margin: 70px auto;
+    }
+    section.event .box {
+        font-size: 0.9em;
+    }
+    section.event .box {
+        font-size: 0.9em;
+    }
+    section.event .box br{
+        display: none;
+    }
+    section.event .box .content .paragraph p {
+        color: gray;
+        line-height: 1.4;
+    }
+    
+    section.event .box .content .buttons {
+        display: flex;
+        align-items: center;
+        align-self: flex-end;
+        position: relative;
+    }
+    section.event .box .content .buttons span {
+        border: 2px solid gray ;
+        border-radius: 30px;
+        padding: 10px;
+        margin-left: 10px;
+    
+    }
+    section.event .box .content .buttons span:hover {
+        border: 2px solid lightgray;
+        transition: 0.5s;
+    }
+    section.event .box .content .buttons .button1:hover .gnb-region {
+        animation: show1 1s forwards;
+    }
+    section.event .box .content .buttons .button2:hover .gnb-time {
+        animation: show2 1s forwards;
+    }
+    
+    
+    section.event .box .content .gnb-region {
+        line-height: 1.2;
+        width: 180px;
+        padding: 15px;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.25);
+        border: 2px solid lightgray;
+        border-radius: 10px;
+    
+        position: absolute;
+        right: 195px;
+        bottom: -115px;
+    
+        opacity: 0;
+    }
+    section.event .box .content .gnb-time {
+        line-height: 1.2;
+        width: 200px;
+        padding: 15px;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.25);
+        border: 2px solid lightgray;
+        border-radius: 10px;
+    
+        position: absolute;
+        right: -7px;
+        bottom: -185px;
+    
+        opacity: 0;
+    }
+    
+
+
+
+
+
 }
